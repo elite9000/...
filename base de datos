@@ -1,0 +1,23 @@
+<?php
+$servername = "localhost";
+$username = "usuario";
+$password = "contraseña";
+$dbname = "reservas_cabanas";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO reservas (nombre, email, telefono, cabana, fecha_llegada, fecha_salida)
+        VALUES ('$name', '$email', '$phone', '$cabin', '$checkin', '$checkout')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Reserva guardada con éxito";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
